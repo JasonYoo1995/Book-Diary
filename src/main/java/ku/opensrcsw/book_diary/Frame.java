@@ -2,6 +2,7 @@ package ku.opensrcsw.book_diary;
 
 import java.awt.CardLayout;
 import java.awt.Container;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 
@@ -10,7 +11,7 @@ public class Frame extends JFrame{
 	CardLayout cardLayout;
 	ListPage listPage;
 	DetailPage detailPage;
-	NaverPage naverPage;
+	NaverPanel naverPage;
 	BookInformation bookInformation;
 	public Frame() {
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,8 +33,6 @@ public class Frame extends JFrame{
         contentPane.add(listPage,"list");
         detailPage = new DetailPage(this);
         contentPane.add(detailPage, "detail");
-        naverPage = new NaverPage(this);
-        contentPane.add(naverPage, "naver");
 
         this.changePage("detail");
 	}
