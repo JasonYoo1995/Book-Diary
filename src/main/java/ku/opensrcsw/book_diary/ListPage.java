@@ -122,7 +122,7 @@ public class ListPage extends JPanel{
 
 		// board
 		int boardHeight = 360;
-		boardPanel = new BoardPanel(startpointX,startpointY+searchHeight+20,width,boardHeight);
+		boardPanel = new BoardPanel(startpointX,startpointY+searchHeight+20,width,boardHeight, this);
 		this.add(boardPanel);
 		
 		// number
@@ -130,5 +130,14 @@ public class ListPage extends JPanel{
 		numberPanel.setBounds(startpointX,startpointY+searchHeight+20+boardHeight+20,width,30);
 		this.add(numberPanel);
 		
+	}
+	public void setContent(Book book){
+		ContentPanel contentPanel = frame.detailPage.contentPanel;
+		contentPanel.dateField.setText(book.date);
+		contentPanel.titleField.setText(book.title);
+		contentPanel.authorField.setText(book.author);
+	}
+	public void changePage(String pageName){
+		frame.changePage(pageName);
 	}
 }

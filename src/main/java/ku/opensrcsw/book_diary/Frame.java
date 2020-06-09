@@ -9,6 +9,8 @@ public class Frame extends JFrame{
 	Container contentPane;
 	CardLayout cardLayout;
 	ListPage listPage;
+	DetailPage detailPage;
+	NaverPage naverPage;
 	BookInformation bookInformation;
 	public Frame() {
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -28,10 +30,12 @@ public class Frame extends JFrame{
         bookInformation.linkObject(listPage);
         
         contentPane.add(listPage,"list");
-        contentPane.add(new WritePage(this), "write");
-        contentPane.add(new ReadPage(this), "read");
-        
-        this.changePage("list");
+        detailPage = new DetailPage(this);
+        contentPane.add(detailPage, "detail");
+        naverPage = new NaverPage(this);
+        contentPane.add(naverPage, "naver");
+
+        this.changePage("detail");
 	}
 	
 	public void changePage(String pageName) {

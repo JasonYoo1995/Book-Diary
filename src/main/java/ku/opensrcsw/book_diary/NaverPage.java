@@ -6,14 +6,14 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-public class WritePage extends JPanel{
+public class NaverPage extends JPanel{
 	Frame frame;
 	JPanel titlePanel, contentPanel;
 	JLabel titleText;
 	int startpointX = 60;
 	int startpointY = 110;
 	int width = 600;
-	WritePage(Frame frame){
+	NaverPage(Frame frame){
 		this.frame = frame;
 		this.setLayout(null);
 		this.setBackground(new Color(214, 245, 214));
