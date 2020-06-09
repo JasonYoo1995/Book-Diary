@@ -11,6 +11,7 @@ public class ContentPanel extends JPanel {
     JTextField dateField, titleField, authorField;
     int posX=20, posY=20, sizeX=30, sizeY=25;
     DetailPage detailPage;
+    NaverPanel naverPanel;
     ContentPanel(final DetailPage detailPage) {
         this.detailPage = detailPage;
         this.setLayout(null);
@@ -35,8 +36,8 @@ public class ContentPanel extends JPanel {
         this.add(dateField);
         this.add(titleField);
         this.add(authorField);
-        JButton naver = new JButton();
-        naver.addMouseListener(new MouseAdapter() {
+        JButton naverButton = new JButton();
+        naverButton.addMouseListener(new MouseAdapter() {
             final Frame f = detailPage.frame;
             @Override
             public void mouseClicked(MouseEvent e) {
@@ -44,11 +45,27 @@ public class ContentPanel extends JPanel {
                 f.changePage("naver");
             }
         });
-        naver.setText("Web");
+        naverButton.setText("Web");
         Border border = BorderFactory.createLineBorder(Color.BLACK);
-        naver.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(0, 0, 0, 0)));
-        naver.setBounds(posX+520,posY,40,sizeY);
-        this.add(naver);
+        naverButton.setBorder(BorderFactory.createCompoundBorder(border, BorderFactory.createEmptyBorder(0, 0, 0, 0)));
+        naverButton.setBounds(posX+520,posY,40,sizeY);
+        this.add(naverButton);
+        naverButton.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                naverPanel.search(titleField.getText());
+            }
+        });
 
+        naverPanel = new NaverPanel(this);
+        naverPanel.setVisible(true);
+        this.add(naverPanel);
+
+    }
+
+    public void setSelectedBook(Book book){
+        this.titleField.setText(book.title);
+        this.authorField.setText(book.author);
     }
 }
