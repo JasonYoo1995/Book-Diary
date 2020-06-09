@@ -69,33 +69,33 @@ public class ListPage extends JPanel{
 		// search button
 		JButton searchButton = new JButton("검색");
 		searchButton.setBounds(250, 15, 60, 20);
-				searchPanel.add(searchButton);
-				searchButton.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						super.mouseClicked(e);
-						SimpleDateFormat transFormatter = new SimpleDateFormat("yyyy-MM-dd");
-						Date dateFrom = null, dateTo = null;
-						dateFrom = (Date)calendarFrom.getModel().getValue();
-						dateTo = (Date)calendarTo.getModel().getValue();
-						String fromString = null, toString = null;
-						if(dateFrom!=null)
-							fromString = transFormatter.format(dateFrom);
-						if(dateTo!=null)
-							toString = transFormatter.format(dateTo);
-						numberPanel.getBooks(1, true, searchField.getText(), fromString, toString);
-					}
-				});
+		searchPanel.add(searchButton);
+		searchButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				SimpleDateFormat transFormatter = new SimpleDateFormat("yyyy-MM-dd");
+				Date dateFrom = null, dateTo = null;
+				dateFrom = (Date)calendarFrom.getModel().getValue();
+				dateTo = (Date)calendarTo.getModel().getValue();
+				String fromString = null, toString = null;
+				if(dateFrom!=null)
+					fromString = transFormatter.format(dateFrom);
+				if(dateTo!=null)
+					toString = transFormatter.format(dateTo);
+				numberPanel.getBooks(1, true, searchField.getText(), fromString, toString);
+			}
+		});
 
-				// search button
-				JButton addButton = new JButton("등록");
-				addButton.setBounds(250, 45, 60, 20);
-				searchPanel.add(addButton);
-				addButton.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						super.mouseClicked(e);
-						frame.changePage("detail");
+		// search button
+		JButton addButton = new JButton("등록");
+		addButton.setBounds(250, 45, 60, 20);
+		searchPanel.add(addButton);
+		addButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				super.mouseClicked(e);
+				frame.changePage("detail");
 			}
 		});
 		
