@@ -68,4 +68,8 @@ public class ContentPanel extends JPanel {
         this.titleField.setText(book.title);
         this.authorField.setText(book.author);
     }
+
+    public Book getBookFromField(){
+        return new Book(dateField.getText(), titleField.getText(), authorField.getText());
+    }
 }

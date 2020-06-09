@@ -50,25 +50,12 @@ public class BookInformation {
 	
 	public void initializeBooks() {
 		// load real books
-		books = fileManager.load();
+		books = fileManager.loadAllBooks();
 		
 		//generate random books
 		if(random) generateBooksRandomly();
 
 		sortByAlphbet();
-	}
-	
-	public Book readBook(String date, String title, String author) {
-		return this.fileManager.read(date, title, author);
-	}
-	
-	public Book addBook(String date, String title, String author) {
-		this.fileManager.write(date, title, author);
-		return new Book(date, title, author);
-	}
-	
-	public void deleteBook() {
-		
 	}
 	
 	// if search is false, the event is due to clicking the number below.	

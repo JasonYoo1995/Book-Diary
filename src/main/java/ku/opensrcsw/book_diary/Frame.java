@@ -11,7 +11,6 @@ public class Frame extends JFrame{
 	CardLayout cardLayout;
 	ListPage listPage;
 	DetailPage detailPage;
-	NaverPanel naverPage;
 	BookInformation bookInformation;
 	public Frame() {
 	    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,7 +33,7 @@ public class Frame extends JFrame{
         detailPage = new DetailPage(this);
         contentPane.add(detailPage, "detail");
 
-        this.changePage("detail");
+        this.changePage("list");
 	}
 	
 	public void changePage(String pageName) {
