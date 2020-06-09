@@ -2,6 +2,8 @@ package ku.opensrcsw.book_diary;
 
 import java.awt.Color;
 import java.awt.GridLayout;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
@@ -10,12 +12,15 @@ import javax.swing.JPanel;
 public class BoardPanel extends JPanel{
 	JPanel datePanel, titlePanel, authorPanel;
 	Color blue;
+	ListPage listPage;
 	
-	public BoardPanel(int x, int y, int w, int h) {
+	public BoardPanel(int x, int y, int w, int h, ListPage listPage) {
 		blue = new Color(226,249,255);
 		
 		this.setBounds(x,y,w,h);
 		this.setLayout(null);
+
+		this.listPage = listPage;
 
 		datePanel = new JPanel(new GridLayout(10,1));
 		titlePanel = new JPanel(new GridLayout(10,1));
@@ -50,15 +55,25 @@ public class BoardPanel extends JPanel{
 		}
 		
 		for (int i = 0; i < books.size(); i++) {
-			JLabel label = new JLabel(books.get(i).date);
-			label.setHorizontalAlignment(JLabel.CENTER);
-			datePanel.add(label);
-			JLabel label2 = new JLabel(books.get(i).title);
-			label2.setHorizontalAlignment(JLabel.CENTER);
-			titlePanel.add(label2);
-			JLabel label3 = new JLabel(books.get(i).author);
-			label3.setHorizontalAlignment(JLabel.CENTER);
-			authorPanel.add(label3);
+			final ArrayList<Book> bs = books;
+			JLabel dateLabel = new JLabel(books.get(i).date);
+			dateLabel.setHorizontalAlignment(JLabel.CENTER);
+			datePanel.add(dateLabel);
+			final Book book = books.get(i);
+			final JLabel titleLabel = new JLabel(book.title);
+			titleLabel.setHorizontalAlignment(JLabel.CENTER);
+			titleLabel.addMouseListener(new MouseAdapter() {
+				@Override
+				public void mouseClicked(MouseEvent e) {
+					super.mouseClicked(e);
+					listPage.changePage("detail");
+					listPage.setContent(book);
+				}
+			});
+			titlePanel.add(titleLabel);
+			JLabel authorLabel = new JLabel(books.get(i).author);
+			authorLabel.setHorizontalAlignment(JLabel.CENTER);
+			authorPanel.add(authorLabel);
 		}
 		this.revalidate();
 	}
