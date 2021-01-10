@@ -20,7 +20,7 @@ public class BookInformation {
 	
 	BookInformation() {
 		this.fileManager = new FileManager();
-//		random = true;
+		random = true;
 		initializeBooks();
 	}
 	
@@ -34,7 +34,7 @@ public class BookInformation {
 	}
 	
 	public void generateBooksRandomly() {
-		for (int i = 0; i < 500; i++) {
+		for (int i = 0; i < 5000; i++) {
 			Random randomMonth = new Random();
 			Random randomDay = new Random();
 			String month = String.valueOf(4+randomMonth.nextInt(4));
