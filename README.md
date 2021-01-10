@@ -5,7 +5,9 @@
 
 ### 주요 기능
 1. 도서 정보 검색
-    <img width=600 src="img/1.png"/>
+    <div style="width:150px; height:100px">
+    ![](./img/1.png)
+    </div>
 1. 도서 정보 등록
 1. 도서 정보 삭제
 1. 시간 순서 나열
