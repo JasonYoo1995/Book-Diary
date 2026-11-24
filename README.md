@@ -53,3 +53,12 @@
     - 프로그램 실행시 이전에 저장해놓은 데이터 로드  
     <img src="img/7.png" width="400"/>
     
+
+---
+
+### 실행 전 설정
+네이버 검색 API 키는 코드에 넣지 않고 환경변수로 읽습니다.
+```
+set NAVER_CLIENT_ID=발급받은_아이디
+set NAVER_CLIENT_SECRET=발급받은_시크릿
+```

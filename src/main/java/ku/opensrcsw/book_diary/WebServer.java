@@ -17,8 +17,8 @@ import java.util.Map;
 public class WebServer {
     String clientId, clientSecret;
     WebServer(){
-        clientId = "***REMOVED***"; //애플리케이션 클라이언트 아이디값"
-        clientSecret = "***REMOVED***"; //애플리케이션 클라이언트 시크릿값"
+        clientId = System.getenv("NAVER_CLIENT_ID"); // 네이버 API 클라이언트 아이디 (환경변수)
+        clientSecret = System.getenv("NAVER_CLIENT_SECRET"); // 네이버 API 클라이언트 시크릿 (환경변수)
     }
 
     private String cleanParse(Object string){
